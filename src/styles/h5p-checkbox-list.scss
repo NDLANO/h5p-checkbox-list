@@ -1,0 +1,14 @@
+@import "./colors";
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.h5p-checkbox-list {
+  background-color: $color-background;
+  color: $color-text;
+}

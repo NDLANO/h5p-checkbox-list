@@ -1,0 +1,73 @@
+[
+  {
+    "name": "taskDescription",
+    "label": "Description of options",
+    "type": "text",
+    "widget": "html",
+    "importance": "high",
+    "description": "Description of what the user should check in the list.",
+    "enterMode": "div",
+    "tags": [
+      "strong",
+      "em",
+      "u",
+      "a",
+      "ul",
+      "ol",
+      "h2",
+      "h3",
+      "hr",
+      "pre",
+      "code"
+    ],
+    "optional": true
+  },
+  {
+    "name": "checkboxes",
+    "type": "list",
+    "label": "Checkboxes",
+    "entity": "Checkbox",
+    "min": 1,
+    "field": {
+      "name": "checkboxes",
+      "type": "group",
+      "label": "Checkboxes",
+      "fields": [
+        {
+          "name": "label",
+          "type": "text",
+          "label": "Checkbox label"
+        },
+        {
+          "name": "checkedByDefault",
+          "type": "boolean",
+          "label": "Checked by default",
+          "description": "Set whether the checkbox should be checked by default or not",
+          "optional": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "a11y",
+    "type": "group",
+    "label": "Accessibility texts",
+    "common": true,
+    "fields": [
+      {
+        "name": "checkboxGroupLabel",
+        "type": "text",
+        "label": "Label for checkbox group",
+        "description": "Label to help understand what the options are about if no task description is added",
+        "default": "Your options"
+      },
+      {
+        "name": "dummy",
+        "type": "text",
+        "label": "Dummy",
+        "default": "Dummy",
+        "widget": "none"
+      }
+    ]
+  }
+]

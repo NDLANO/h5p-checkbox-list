@@ -1,0 +1,28 @@
+{
+  "title": "Checkbox list editor element",
+  "description": "A configurable editor element that can be used to describe an checkbox list.",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 0,
+  "author": "NDLA, Oliver Tacke",
+  "license": "MIT",
+  "machineName": "H5P.CheckboxList",
+  "embedTypes": [
+    "iframe"
+  ],
+  "preloadedJs": [
+    {
+      "path": "dist/h5p-checkbox-list.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "dist/h5p-checkbox-list.css"
+    }
+  ],
+  "metadataSettings": {
+    "disable": 1,
+    "disableExtraTitleField": 1
+  }
+}
