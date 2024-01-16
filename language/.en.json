@@ -1,40 +1,32 @@
 {
   "semantics": [
     {
-      "label": "Sample"
+      "label": "Description of options",
+      "description": "Description of what the user should check in the list."
     },
     {
-      "label": "Behavioural settings",
-      "fields": [
-        {
-          "label": "Sample behaviour"
-        },
-        {
-          "label": "Dummy"
-        }
-      ]
-    },
-    {
-      "label": "User interface",
-      "fields": [
-        {
-          "label": "Sample entry for visible user interface strings",
-          "description": "This is just a sample entry for visible user interface strings.",
-          "default": "Sample l10n"
-        },
-        {
-          "label": "Dummy",
-          "default": "Dummy"
-        }
-      ]
+      "label": "Checkboxes",
+      "entity": "Checkbox",
+      "field": {
+        "label": "Checkboxes",
+        "fields": [
+          {
+            "label": "Checkbox label"
+          },
+          {
+            "label": "Checked by default",
+            "description": "Set whether the checkbox should be checked by default or not"
+          }
+        ]
+      }
     },
     {
       "label": "Accessibility texts",
       "fields": [
         {
-          "label": "Sample entry for accessibility strings",
-          "description": "This is just a sample entry for accessibility strings.",
-          "default": "Sample a11y"
+          "label": "Label for checkbox group",
+          "description": "Label to help understand what the options are about if no task description is added",
+          "default": "Your options"
         },
         {
           "label": "Dummy",
