@@ -21,6 +21,20 @@
       }
     },
     {
+      "label": "Localization",
+      "fields": [
+        {
+          "label": "Message no checkboxes configured",
+          "description": "Label to set when no checkboxes have been configured by the editor.",
+          "default": "No checkboxes were configured!"
+        },
+        {
+          "label": "Dummy",
+          "default": "Dummy"
+        }
+      ]
+    },
+    {
       "label": "Accessibility texts",
       "fields": [
         {

@@ -22,15 +22,13 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
     // Sanitize parameters
     this.params = Util.extend({
       checkboxes: [],
+      l10n: {
+        noCheckboxesConfigured: 'No checkboxes were configured!'
+      },
       a11y: {
         checkboxGroupLabel: 'Your options'
       }
     }, params);
-
-    this.params.checkboxes = this.params.checkboxes.map((checkbox) => {
-      checkbox.label = Util.decodeHTML(checkbox.label ?? '');
-      return checkbox;
-    });
 
     this.contentId = contentId;
     this.extras = extras;
@@ -41,6 +39,22 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
 
     const defaultLanguage = extras?.metadata?.defaultLanguage || 'en';
     this.languageTag = Util.formatLanguageCode(defaultLanguage);
+
+    this.params.checkboxes = this.params.checkboxes
+      .filter((checkbox) => typeof checkbox.label === 'string' && checkbox)
+      .map((checkbox) => {
+        checkbox.label = Util.decodeHTML(checkbox.label);
+        return checkbox;
+      });
+
+    if (!this.params.checkboxes.length) {
+      this.params.checkboxes.push({
+        checkedByDefault: false,
+        label: Util.decodeHTML(
+          this.dictionary.get('l10n.noCheckboxesConfigured')
+        )
+      });
+    }
 
     this.previousState = extras?.previousState || {};
 

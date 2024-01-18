@@ -49,6 +49,28 @@
     }
   },
   {
+    "name": "l10n",
+    "type": "group",
+    "label": "Localization",
+    "common": true,
+    "fields": [
+      {
+        "name": "noCheckboxesConfigured",
+        "type": "text",
+        "label": "Message no checkboxes configured",
+        "description": "Label to set when no checkboxes have been configured by the editor.",
+        "default": "No checkboxes were configured!"
+      },
+      {
+        "name": "dummy",
+        "type": "text",
+        "label": "Dummy",
+        "default": "Dummy",
+        "widget": "none"
+      }
+    ]
+  },
+  {
     "name": "a11y",
     "type": "group",
     "label": "Accessibility texts",
