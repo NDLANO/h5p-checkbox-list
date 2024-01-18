@@ -6,7 +6,7 @@
     },
     {
       "label": "Checkboxes",
-      "entity": "Checkbox",
+      "entity": "checkbox",
       "field": {
         "label": "Checkboxes",
         "fields": [
