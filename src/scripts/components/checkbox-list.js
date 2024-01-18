@@ -56,17 +56,6 @@ export default class CheckboxList {
           {
             checkbox: checkboxParam,
             previousState: this.params.previousState[index]
-          },
-          {
-            onChanged: () => {
-              /*
-               * Technically, this could be triggered when the checkbox
-               * gets unchecked and we don't have any required input, but
-               * the logic of Documentation Tool should only mark something
-               * as required when it calls markAsEmpty.
-               */
-              this.checkboxListList.classList.remove('required-input');
-            }
           }
         )
       );
@@ -98,9 +87,22 @@ export default class CheckboxList {
    * Mark as empty depending on state.
    */
   markAsEmpty() {
-    if (!this.isSomethingChecked()) {
-      this.checkboxListList.classList.add('required-input');
+    if (this.isSomethingChecked()) {
+      this.checkboxListList.classList.remove('required-input');
+      return;
     }
+
+    this.checkboxListList.classList.add('required-input');
+    this.checkboxListList.addEventListener('change', (event) => {
+      const isFromCheckbox = this.checkboxes
+        .some((checkbox) => checkbox.getCheckboxDOM() === event.target);
+
+      if (!isFromCheckbox) {
+        return;
+      }
+
+      this.checkboxListList.classList.remove('required-input');
+    }, { once: true });
   }
 
   /**
