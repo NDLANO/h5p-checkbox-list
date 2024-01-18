@@ -13,7 +13,7 @@ export default class CheckboxList {
       checkboxes: [],
       previousState: [],
       checkboxGroupLabel: 'Your options',
-      reuired: false
+      required: false
     }, params);
 
     this.checkboxes = [];
