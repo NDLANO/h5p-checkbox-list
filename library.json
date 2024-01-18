@@ -1,6 +1,6 @@
 {
   "title": "Checkbox list editor element",
-  "description": "A configurable editor element that can be used to describe an checkbox list.",
+  "description": "A configurable editor element that can be used to describe a checkbox list.",
   "majorVersion": 1,
   "minorVersion": 0,
   "patchVersion": 0,

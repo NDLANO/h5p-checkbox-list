@@ -1,7 +1,7 @@
 {
   "name": "h5p-checkbox-list",
   "version": "1.0.0",
-  "description": "A configurable editor element that can be used to describe an checkbox list",
+  "description": "A configurable editor element that can be used to describe a checkbox list",
   "private": true,
   "scripts": {
     "lint": "stylelint './src/**/*.scss' && eslint './src/**/*.js'",
