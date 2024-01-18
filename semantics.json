@@ -55,8 +55,7 @@
     "importance": "low",
     "default": false,
     "optional": true,
-    "description": "Check to make this field required, the user must check at least one checkbox to be able to export a document.",
-    "status": "new"
+    "description": "Check to make this field required, the user must check at least one checkbox to be able to export a document."
   },
   {
     "name": "l10n",
