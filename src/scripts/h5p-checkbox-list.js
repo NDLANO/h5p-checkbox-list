@@ -57,7 +57,7 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
       });
     }
 
-    this.previousState = extras?.previousState || {};
+    this.previousState = extras?.previousState ?? {};
 
     this.dom = this.buildDOM();
   }
