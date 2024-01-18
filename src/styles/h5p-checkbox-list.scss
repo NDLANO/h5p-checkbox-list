@@ -14,11 +14,11 @@ html {
 }
 
 .h5p-checkbox-list-description {
-  &>* {
+  & > * {
     margin-top: 0.2em;
     margin-bottom: 0.2em;
   }
-  &>:last-child:after {
+  &.required > :last-child:after {
     color: #da0001;
     content: "*";
     font-size: 1.1em;
