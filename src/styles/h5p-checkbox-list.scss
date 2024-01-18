@@ -12,3 +12,16 @@ html {
   background-color: $color-background;
   color: $color-text;
 }
+
+.h5p-checkbox-list-description {
+  &>* {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+  &>:last-child:after {
+    color: #da0001;
+    content: "*";
+    font-size: 1.1em;
+    padding-left: 4px;
+  }
+}

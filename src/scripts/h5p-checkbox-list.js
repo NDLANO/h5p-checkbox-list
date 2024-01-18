@@ -27,7 +27,8 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
       },
       a11y: {
         checkboxGroupLabel: 'Your options'
-      }
+      },
+      requiredField: false
     }, params);
 
     this.contentId = contentId;
@@ -87,12 +88,23 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
       dom.append(descriptionDOM);
 
       checkboxGroupLabel = Util.purifyHTML(this.params.taskDescription);
+
+      descriptionDOM.classList.toggle('required', this.params.requiredField);
+    }
+
+    if (this.params.requiredField) {
+      if (!checkboxGroupLabel.endsWith('.')) {
+        checkboxGroupLabel = `${checkboxGroupLabel}.`;
+      }
+
+      checkboxGroupLabel = `${checkboxGroupLabel} ${this.dictionary.get('a11y.requiredAnswer')}`;
     }
 
     this.checkboxList = new CheckboxList({
       checkboxes: this.params.checkboxes,
       previousState: this.previousState.checkboxes ?? [],
-      checkboxGroupLabel: checkboxGroupLabel
+      checkboxGroupLabel: checkboxGroupLabel,
+      required: this.params.requiredField
     });
     dom.append(this.checkboxList.getDOM());
 
@@ -108,5 +120,24 @@ export default class CheckboxListApp extends H5P.EventDispatcher {
       description: Util.purifyHTML(this.params.taskDescription),
       value: this.checkboxList.getTextualRepresentation()
     };
+  }
+
+  /**
+   * Determine whether input is filled, required by DocumentExportPage.
+   * @returns {boolean} True if some checkbox is checked or not required.
+   */
+  isRequiredInputFilled() {
+    if (!this.params.requiredField) {
+      return true;
+    }
+
+    return this.checkboxList.isSomethingChecked();
+  }
+
+  /**
+   * Mark field if empty until it's filled.
+   */
+  markEmptyField() {
+    this.checkboxList.markAsEmpty();
   }
 }

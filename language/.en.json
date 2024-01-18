@@ -21,6 +21,10 @@
       }
     },
     {
+      "label": "Required field",
+      "description": "Check to make this field required, the user must check at least one checkbox to be able to export a document."
+    },
+    {
       "label": "Localization",
       "fields": [
         {
@@ -39,12 +43,13 @@
       "fields": [
         {
           "label": "Label for checkbox group",
-          "description": "Label to help understand what the options are about if no task description is added",
+          "description": "Label to help understand what the options are about if no task description is added.",
           "default": "Your options"
         },
         {
-          "label": "Dummy",
-          "default": "Dummy"
+          "label": "Answer is required.",
+          "description": "Label to inform that an answer is required if the field is required.",
+          "default": "An answer is required, so at least one checkbox must be checked."
         }
       ]
     }

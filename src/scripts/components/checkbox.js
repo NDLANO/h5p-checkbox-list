@@ -5,13 +5,19 @@ export default class Checkbox {
   /**
    * @class
    * @param {object} params Parameters passed by the editor.
+   * @param {object} callbacks Callbacks.
+   * @param {function} callbacks.onChanged Callback for changed.
    */
-  constructor(params = {}) {
+  constructor(params = {}, callbacks = {}) {
     // Sanitize parameters
     this.params = Util.extend({
       label: '',
       checkedByDefault: false
     }, params);
+
+    this.callbacks = Util.extend({
+      onChanged: () => {}
+    }, callbacks);
 
     this.dom = this.buildDOM();
   }
@@ -22,6 +28,14 @@ export default class Checkbox {
    */
   getDOM() {
     return this.dom;
+  }
+
+  /**
+   * Get checkbox DOM.
+   * @returns {HTMLElement} Checkbox DOM.
+   */
+  getCheckboxDOM() {
+    return this.checkbox;
   }
 
   /**
@@ -40,6 +54,7 @@ export default class Checkbox {
 
     this.checkbox.addEventListener('change', () => {
       this.setAnswerGiven(true);
+      this.callbacks.onChanged();
     });
 
     this.setAnswerGiven(

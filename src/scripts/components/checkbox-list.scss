@@ -1,6 +1,13 @@
 .h5p-checkbox-list-checkbox-list-group {
   .h5p-checkbox-list-checkbox-list {
+    border: 1px solid transparent;
     list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
     padding: 0;
+
+    &.required-input {
+      border-color: red;
+    }
   }
 }

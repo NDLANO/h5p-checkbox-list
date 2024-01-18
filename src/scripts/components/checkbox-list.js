@@ -12,7 +12,8 @@ export default class CheckboxList {
     this.params = Util.extend({
       checkboxes: [],
       previousState: [],
-      checkboxGroupLabel: 'Your options'
+      checkboxGroupLabel: 'Your options',
+      reuired: false
     }, params);
 
     this.checkboxes = [];
@@ -41,20 +42,33 @@ export default class CheckboxList {
       'aria-label', this.params.checkboxGroupLabel
     );
 
-    const checkboxListList = document.createElement('ul');
-    checkboxListList.classList.add('h5p-checkbox-list-checkbox-list');
-    checkboxListGroup.append(checkboxListList);
+    this.checkboxListList = document.createElement('ul');
+    this.checkboxListList.classList.add('h5p-checkbox-list-checkbox-list');
+    checkboxListGroup.append(this.checkboxListList);
 
     this.params.checkboxes.forEach((checkboxParam, index) => {
       const listItem = document.createElement('li');
       listItem.classList.add('h5p-checkbox-list-checkbox-list-item');
-      checkboxListList.append(listItem);
+      this.checkboxListList.append(listItem);
 
       this.checkboxes.push(
-        new Checkbox({
-          checkbox: checkboxParam,
-          previousState: this.params.previousState[index]
-        })
+        new Checkbox(
+          {
+            checkbox: checkboxParam,
+            previousState: this.params.previousState[index]
+          },
+          {
+            onChanged: () => {
+              /*
+               * Technically, this could be triggered when the checkbox
+               * gets unchecked and we don't have any required input, but
+               * the logic of Documentation Tool should only mark something
+               * as required when it calls markAsEmpty.
+               */
+              this.checkboxListList.classList.remove('required-input');
+            }
+          }
+        )
       );
       listItem.append(this.checkboxes[index].getDOM());
     });
@@ -70,6 +84,23 @@ export default class CheckboxList {
     return this.checkboxes.map((checkbox) => {
       return checkbox.getTextualRepresentation();
     }).join('\n');
+  }
+
+  /**
+   * Determine whether some checkbox is checked.
+   * @returns {boolean} True, if some checkbox is checked.
+   */
+  isSomethingChecked() {
+    return this.checkboxes.some((checkbox) => checkbox.isChecked());
+  }
+
+  /**
+   * Mark as empty depending on state.
+   */
+  markAsEmpty() {
+    if (!this.isSomethingChecked()) {
+      this.checkboxListList.classList.add('required-input');
+    }
   }
 
   /**

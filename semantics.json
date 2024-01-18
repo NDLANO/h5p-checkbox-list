@@ -49,6 +49,16 @@
     }
   },
   {
+    "name": "requiredField",
+    "label": "Required field",
+    "type": "boolean",
+    "importance": "low",
+    "default": false,
+    "optional": true,
+    "description": "Check to make this field required, the user must check at least one checkbox to be able to export a document.",
+    "status": "new"
+  },
+  {
     "name": "l10n",
     "type": "group",
     "label": "Localization",
@@ -80,15 +90,15 @@
         "name": "checkboxGroupLabel",
         "type": "text",
         "label": "Label for checkbox group",
-        "description": "Label to help understand what the options are about if no task description is added",
+        "description": "Label to help understand what the options are about if no task description is added.",
         "default": "Your options"
       },
       {
-        "name": "dummy",
+        "name": "requiredAnswer",
         "type": "text",
-        "label": "Dummy",
-        "default": "Dummy",
-        "widget": "none"
+        "label": "Answer is required.",
+        "description": "Label to inform that an answer is required if the field is required.",
+        "default": "An answer is required, so at least one checkbox must be checked."
       }
     ]
   }
