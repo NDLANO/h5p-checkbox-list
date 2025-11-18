@@ -14,7 +14,8 @@
     "ecmaVersion": 2020
   },
   "rules": {
-    "no-alert": ["error"]
+    "no-alert": ["error"],
+    "jsdoc/valid-types": 0
   },
   "plugins": ["jsdoc"],
   "settings": {
